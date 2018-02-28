@@ -1,15 +1,16 @@
 body {
-  font: 24px "Century Gothic", Futura, sans-serif;
+  font: 24px 'Century Gothic', Futura, sans-serif;
   margin: 20px;
 }
 
-ol, ul {
+ol,
+ul {
   padding-left: 30px;
 }
 
 .board-row:after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 
@@ -47,4 +48,21 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
+}
+
+.history-button {
+  background-color: #555555; /* Green */
+  border: none;
+  color: #fff;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.current-button {
+  background-color: #4CAF50;
+  color: #000;
+  font-weight: bold;
 }

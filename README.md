@@ -13,7 +13,7 @@ Advansed features:
 
 * :white_check_mark: Done. Display the location for each move in the format (col, row) in the move history list.
 
-* :clock1030: In progress. Bold the currently selected item in the move list.
+* :white_check_mark: Done. Bold the currently selected item in the move list.
 
 * :clock1030: In progress. Rewrite Board to use two loops to make the squares instead of hardcoding them.
 

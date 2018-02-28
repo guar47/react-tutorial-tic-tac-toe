@@ -91,7 +91,9 @@ class Game extends React.Component {
 
       return (
         <li key={move}>
-          <button className={`${classButton} history-button`} onClick={() => this.jumpTo(move)}>{`${desc} ${currentLocation}`}</button>
+          <button className={`${classButton} history-button`} onClick={() => this.jumpTo(move)}>
+            {`${desc} ${currentLocation}`}
+          </button>
         </li>
       );
     });
@@ -99,6 +101,8 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = `Winner ${winner}`;
+    } else if (history.length === 10) {
+      status = 'Draw. No one won.';
     } else {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }

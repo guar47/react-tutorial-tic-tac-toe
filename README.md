@@ -15,7 +15,7 @@ Advansed features:
 
 * :white_check_mark: Done. Bold the currently selected item in the move list.
 
-* :clock1030: In progress. Rewrite Board to use two loops to make the squares instead of hardcoding them.
+* :white_check_mark: Done. Rewrite Board to use two loops to make the squares instead of hardcoding them.
 
 * :clock1030: In progress. Add a toggle button that lets you sort the moves in either ascending or descending order.
 

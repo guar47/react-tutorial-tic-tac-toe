@@ -21,4 +21,4 @@ Advansed features:
 
 * :clock1030: In progress. When someone wins, highlight the three squares that caused the win.
 
-* :clock1030: In progress. When no one wins, display a message about the result being a draw.
+* :white_check_mark: Done. When no one wins, display a message about the result being a draw.

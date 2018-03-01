@@ -11,9 +11,7 @@ class Board extends React.Component {
       for (let j = 0; j < col; j += 1) {
         columns.push(this.renderSquare(cellCounter++));
       }
-      board.push(<div key={i} className="board-row">
-        {columns}
-                 </div>);
+      board.push(<div key={i} className="board-row">{columns}</div>);
     }
 
     return board;

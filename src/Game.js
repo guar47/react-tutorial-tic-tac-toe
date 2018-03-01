@@ -46,13 +46,13 @@ class Game extends React.Component {
           squares: Array(9).fill(null),
         },
       ],
-      stepNumber: 0,
+      currentStepNumber: 0,
       xIsNext: true,
     };
   }
 
   handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.state.history.slice(0, this.state.currentStepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
@@ -65,33 +65,40 @@ class Game extends React.Component {
         {
           squares,
           currentLocation: getLocation(i),
+          stepNumber: history.length,
         },
       ]),
       xIsNext: !this.state.xIsNext,
-      stepNumber: history.length,
+      currentStepNumber: history.length,
     });
   }
 
   jumpTo(step) {
     this.setState({
-      stepNumber: step,
+      currentStepNumber: step,
       xIsNext: step % 2 === 0,
+    });
+  }
+
+  sortMoves() {
+    this.setState({
+      history: this.state.history.reverse(),
     });
   }
 
   render() {
     const { history } = this.state;
-    const current = history[this.state.stepNumber];
+    const current = history[this.state.currentStepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
       const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-      const classButton = move === this.state.stepNumber ? 'current-button' : '';
+      const desc = step.stepNumber ? `Go to move #${step.stepNumber}` : 'Go to game start';
+      const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
 
       return (
-        <li key={move}>
-          <button className={`${classButton} history-button`} onClick={() => this.jumpTo(move)}>
+        <li key={step.stepNumber}>
+          <button className={`${classButton} button`} onClick={() => this.jumpTo(move)}>
             {`${desc} ${currentLocation}`}
           </button>
         </li>
@@ -114,6 +121,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
+          <button className="button" onClick={() => this.sortMoves()}>Sort moves</button>
           <ol>{moves}</ol>
         </div>
       </div>

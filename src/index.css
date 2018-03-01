@@ -50,7 +50,7 @@ ul {
   margin-left: 20px;
 }
 
-.history-button {
+.button {
   background-color: #555555; /* Green */
   border: none;
   color: #fff;
@@ -61,7 +61,7 @@ ul {
   cursor: pointer;
 }
 
-.current-button {
+.button--green {
   background-color: #4CAF50;
   color: #000;
   font-weight: bold;

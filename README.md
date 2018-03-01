@@ -1,5 +1,6 @@
 # Tic Tac Toe game by React tutorial
-https://reactjs.org/tutorial/tutorial.html
+
+[Tutorial link](https://reactjs.org/tutorial/tutorial.html)
 
 Usage:
 
@@ -9,7 +10,7 @@ Usage:
 
 ---
 
-Advansed features:
+Advanced features:
 
 * :white_check_mark: Done. Display the location for each move in the format (col, row) in the move history list.
 
@@ -17,7 +18,7 @@ Advansed features:
 
 * :white_check_mark: Done. Rewrite Board to use two loops to make the squares instead of hardcoding them.
 
-* :clock1030: In progress. Add a toggle button that lets you sort the moves in either ascending or descending order.
+* :white_check_mark: Done. Add a toggle button that lets you sort the moves in either ascending or descending order.
 
 * :clock1030: In progress. When someone wins, highlight the three squares that caused the win.
 

@@ -33,6 +33,10 @@ ul {
   width: 54px;
 }
 
+.square--green {
+  background: green;
+}
+
 .square:focus {
   outline: none;
 }
@@ -62,7 +66,7 @@ ul {
 }
 
 .button--green {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #000;
   font-weight: bold;
 }

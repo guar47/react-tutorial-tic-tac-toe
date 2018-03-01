@@ -12,13 +12,15 @@ const calculateWinner = (squares) => {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   for (let i = 0; i < lines.length; i += 1) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return { winner: squares[a], winnerRow: lines[i] };
     }
   }
-  return null;
+
+  return { winner: null, winnerRow: null };
 };
 
 const getLocation = (move) => {
@@ -56,7 +58,7 @@ class Game extends React.Component {
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares).winner || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -89,7 +91,7 @@ class Game extends React.Component {
   render() {
     const { history } = this.state;
     const current = history[this.state.currentStepNumber];
-    const winner = calculateWinner(current.squares);
+    const { winner, winnerRow } = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
       const currentLocation = step.currentLocation ? `(${step.currentLocation})` : '';
@@ -117,11 +119,17 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board
+            squares={current.squares}
+            winnerSquares={winnerRow}
+            onClick={i => this.handleClick(i)}
+          />
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <button className="button" onClick={() => this.sortMoves()}>Sort moves</button>
+          <button className="button" onClick={() => this.sortMoves()}>
+            Sort moves
+          </button>
           <ol>{moves}</ol>
         </div>
       </div>

@@ -23,3 +23,6 @@ Advanced features:
 * :white_check_mark: Done. When someone wins, highlight the three squares that caused the win.
 
 * :white_check_mark: Done. When no one wins, display a message about the result being a draw.
+
+* :white_check_mark: Done. Add the button to re-start the game.
+

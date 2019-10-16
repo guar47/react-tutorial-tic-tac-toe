@@ -6,7 +6,7 @@ Usage:
 
 `yarn`
 
-`npm start`
+`yarn start`
 
 ---
 

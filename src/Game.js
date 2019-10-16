@@ -39,18 +39,20 @@ const getLocation = (move) => {
   return locationMap[move];
 };
 
+const initialState = {
+  history: [
+    {
+      squares: Array(9).fill(null),
+    },
+  ],
+  currentStepNumber: 0,
+  xIsNext: true,
+};
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      history: [
-        {
-          squares: Array(9).fill(null),
-        },
-      ],
-      currentStepNumber: 0,
-      xIsNext: true,
-    };
+    this.state = initialState;
   }
 
   handleClick(i) {
@@ -88,6 +90,10 @@ class Game extends React.Component {
     });
   }
 
+  reset() {
+    this.setState(initialState);
+  }
+
   render() {
     const { history } = this.state;
     const current = history[this.state.currentStepNumber];
@@ -99,7 +105,7 @@ class Game extends React.Component {
       const classButton = move === this.state.currentStepNumber ? 'button--green' : '';
 
       return (
-        <li key={step.stepNumber}>
+        <li key={move}>
           <button className={`${classButton} button`} onClick={() => this.jumpTo(move)}>
             {`${desc} ${currentLocation}`}
           </button>
@@ -129,6 +135,9 @@ class Game extends React.Component {
           <div>{status}</div>
           <button className="button" onClick={() => this.sortMoves()}>
             Sort moves
+          </button>
+          <button className="button button--new-game" onClick={() => this.reset()}>
+            New game
           </button>
           <ol>{moves}</ol>
         </div>

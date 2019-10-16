@@ -70,3 +70,10 @@ ul {
   color: #000;
   font-weight: bold;
 }
+
+.button--new-game {
+  background-color: #bb3219;
+  color: #000;
+  font-weight: bold;
+  margin-left: 2px;
+}
